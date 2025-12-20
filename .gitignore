@@ -1,2 +1,13 @@
-# Ignore helper drafts / artifacts
+# Helper drafts
 helper/
+
+# Vector DB / FAISS artifacts
+*.pkl
+faiss_index*/
+
+# Virtual environments
+.env_chat_rag/
+
+# Python cache
+__pycache__/
+*.pyc
