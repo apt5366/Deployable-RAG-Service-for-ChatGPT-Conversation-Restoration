@@ -20,6 +20,7 @@ Packages the system into a reproducible Docker deployment
 The system is fully local, free to run, and designed to mirror real-world RAG service architectures.
 
 🧩 High-level architecture
+
                 ┌──────────────────────┐
                 │ conversations.json   │
                 │ (ChatGPT export)     │
@@ -49,6 +50,7 @@ The system is fully local, free to run, and designed to mirror real-world RAG se
         │  • Mistral Instruct              │
         │  • Runs as separate service      │
         └──────────────────────────────────┘
+
 
 🧠 Key design decisions (and why they matter)
 1️⃣ Offline ingestion vs online inference
@@ -105,6 +107,7 @@ docker run -p 8000:8000 chatgpt-rag
 This ensures reproducibility across machines without re-running ingestion.
 
 📂 Project structure
+
 OLD_CHAT_RAG/
 ├── app.py                     # FastAPI application
 ├── service.py                 # Core RAG logic (retrieval + generation)
@@ -116,6 +119,8 @@ OLD_CHAT_RAG/
 ├── rag_chatgpt_history.py     # Original interactive prototype
 ├── helper/                    # Experimental drafts (ignored)
 └── README.md
+
+
 
 🚀 How to run the project
 🔹 Prerequisites
