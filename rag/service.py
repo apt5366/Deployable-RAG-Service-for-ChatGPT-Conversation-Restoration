@@ -123,7 +123,14 @@ Summarize the following past chats clearly:
 User request: {question}
 """
         log_request(question, route, start_time)
-        return llm.invoke(summary_prompt)
+        answer = llm.invoke(summary_prompt)
+        sources = [doc.page_content[:300] for doc in docs]
+
+        return {
+            "answer": answer,
+            "sources": sources
+        }
+        # return llm.invoke(summary_prompt)
 
     # ------------------
     # Stats route
