@@ -12,8 +12,9 @@ from langchain_core.documents import Document
 # -----------------------
 # Config
 # -----------------------
-CHAT_EXPORT = Path("conversations.json")
-INDEX_PATH = Path("faiss_index_cache.pkl")
+CHAT_EXPORT = Path("data/conversations.json")
+# INDEX_PATH = Path("data/faiss_index_cache.pkl")
+INDEX_PATH = Path("data/faiss_index")
 
 if not CHAT_EXPORT.exists():
     raise FileNotFoundError("conversations.json not found")
@@ -56,9 +57,13 @@ embeddings = SentenceTransformerEmbeddings(
     model_name="all-MiniLM-L6-v2"
 )
 
+# vector_store = FAISS.from_documents(documents, embeddings)
+
+# with open(INDEX_PATH, "wb") as f:
+#     pickle.dump(vector_store, f)
+
 vector_store = FAISS.from_documents(documents, embeddings)
 
-with open(INDEX_PATH, "wb") as f:
-    pickle.dump(vector_store, f)
+vector_store.save_local("data/faiss_index")
 
 print(f"[✓] FAISS index saved to {INDEX_PATH} ({time.time() - t0:.1f}s)")

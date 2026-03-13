@@ -1,0 +1,14 @@
+.env_chat_rag
+__pycache__
+*.pyc
+.git
+.gitignore
+*.log
+*.sqlite
+.cache
+.vscode
+.idea
+*.pt
+*.bin
+*.pkl
+!data/faiss_index_cache.pkl
