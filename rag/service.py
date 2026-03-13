@@ -102,7 +102,12 @@ def query_chat_history(question: str, top_k: int = 4) -> str:
         log_request(question, route, start_time)
         return {
             "answer": answer,
-            "sources": sources
+            "sources": sources, 
+            "metadata": {
+                "route": route,
+                "retrieved_chunks": len(docs),
+                "latency_seconds": round(time.time() - start_time, 2)
+            }
         }
         # return llm.invoke(formatted_prompt)
 
@@ -128,7 +133,12 @@ User request: {question}
 
         return {
             "answer": answer,
-            "sources": sources
+            "sources": sources,
+            "metadata": {
+                "route": route,
+                "retrieved_chunks": len(docs),
+                "latency_seconds": round(time.time() - start_time, 2)
+            }
         }
         # return llm.invoke(summary_prompt)
 

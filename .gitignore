@@ -11,3 +11,7 @@ faiss_index*/
 # Python cache
 __pycache__/
 *.pyc
+
+# for privacy from public deployment on github & AWS
+data/faiss_index/
+data/conversations_private.json
